@@ -1,15 +1,19 @@
-import { expect, test } from 'vitest'
+import { expect, test, vi } from 'vitest'
 import { render } from 'vitest-browser-react'
-import { RouterProvider } from '@tanstack/react-router'
-import { getRouter } from '../router'
+
+vi.mock('@tanstack/react-router', () => {
+  return {
+    Link: ({ to, children, activeProps, ...props }: any) => (
+      <a href={to} {...props}>
+        {children}
+      </a>
+    ),
+  }
+})
+
 import Header from './Header.tsx'
 
 test('renders brand and nav links', async () => {
-  const router = getRouter()
-  const { getByRole } = await render(
-    <RouterProvider router={router}>
-      <Header />
-    </RouterProvider>
-  )
+  const { getByRole } = await render(<Header />)
   await expect.element(getByRole('link', { name: 'TanStack Start' })).toBeInTheDocument()
 })
