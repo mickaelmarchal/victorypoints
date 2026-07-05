@@ -1,5 +1,4 @@
 import { createFileRoute } from "@tanstack/react-router"
-import { ThemeToggle } from "#/components/ThemeToggle"
 
 export const Route = createFileRoute("/")({ component: App })
 
@@ -7,6 +6,8 @@ function App() {
   return (
     <main className="page-wrap px-4 pb-8 pt-14">
       <section className="island-shell rise-in relative overflow-hidden rounded-[2rem] px-6 py-10 sm:px-10 sm:py-14">
+        <div className="pointer-events-none absolute -left-20 -top-24 h-56 w-56 rounded-full bg-[radial-gradient(circle,rgba(79,184,178,0.32),transparent_66%)]" />
+        <div className="pointer-events-none absolute -bottom-20 -right-20 h-56 w-56 rounded-full bg-[radial-gradient(circle,rgba(47,106,74,0.18),transparent_66%)]" />
         <p className="island-kicker mb-3">TanStack Start Base Template</p>
         <h1 className="display-title mb-5 max-w-3xl text-4xl leading-[1.02] font-bold tracking-tight text-(--sea-ink) sm:text-6xl">
           Start simple, ship quickly.
@@ -31,10 +32,6 @@ function App() {
             Router Guide
           </a>
         </div>
-      </section>
-
-      <section className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-        <ThemeToggle />
       </section>
 
       <section className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">

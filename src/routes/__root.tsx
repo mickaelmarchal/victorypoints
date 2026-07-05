@@ -2,6 +2,8 @@ import { TanStackDevtools } from "@tanstack/react-devtools"
 import { createRootRoute, HeadContent, Outlet, Scripts } from "@tanstack/react-router"
 import { TanStackRouterDevtoolsPanel } from "@tanstack/react-router-devtools"
 import type { ReactNode } from "react"
+import Footer from "#/components/Footer"
+import Header from "#/components/Header"
 import { ThemeProvider } from "#/components/ThemeProvider"
 import appCss from "#/styles.css?url"
 
@@ -45,7 +47,9 @@ function RootDocument({ children }: Readonly<{ children: ReactNode }>) {
       </head>
       <body>
         <ThemeProvider defaultTheme="system" storageKey="theme">
+          <Header />
           {children}
+          <Footer />
           <TanStackDevtools
             config={{
               position: "bottom-right",
@@ -57,8 +61,8 @@ function RootDocument({ children }: Readonly<{ children: ReactNode }>) {
               },
             ]}
           />
+          <Scripts />
         </ThemeProvider>
-        <Scripts />
       </body>
     </html>
   )

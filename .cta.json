@@ -11,9 +11,12 @@
   "install": true,
   "routerOnly": false,
   "version": 1,
+  "addOns": true,
+  "intent": true,
   "framework": "react",
   "chosenAddOns": [
     "biome",
-    "shadcn"
+    "shadcn",
+    "better-auth"
   ]
 }

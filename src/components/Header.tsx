@@ -1,5 +1,6 @@
 import { Link } from "@tanstack/react-router"
-import ThemeToggle from "./ThemeToggle"
+import BetterAuthHeader from "../integrations/better-auth/header-user.tsx"
+import { ThemeToggle } from "./ThemeToggle"
 
 export default function Header() {
   return (
@@ -30,6 +31,17 @@ export default function Header() {
           >
             Docs
           </a>
+          <details className="relative w-full sm:w-auto">
+            <summary className="nav-link list-none cursor-pointer">Demos</summary>
+            <div className="mt-2 min-w-56 rounded-xl border border-(--line) bg-(--header-bg) p-2 shadow-lg sm:absolute sm:right-0">
+              <a
+                href="/demo/better-auth"
+                className="block rounded-lg px-3 py-2 text-sm text-(--sea-ink-soft) no-underline transition hover:bg-(--link-bg-hover) hover:text-(--sea-ink)"
+              >
+                Better Auth
+              </a>
+            </div>
+          </details>
         </div>
 
         <div className="ml-auto flex items-center gap-1.5 sm:gap-2">
@@ -61,6 +73,7 @@ export default function Header() {
               />
             </svg>
           </a>
+          <BetterAuthHeader />
 
           <ThemeToggle />
         </div>
